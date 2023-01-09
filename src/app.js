@@ -11,9 +11,9 @@ server.use(json());
 //register new user
 
 const myUsers = [
-    {username: "myUser1", avatar: "https://s2.glbimg.com/8iLWwM5oUPasaC5CTjBJMPIQeFw=/0x0:1200x800/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2022/t/E/VBefKVRAGuKQ8Krjvl3Q/23.png" }
+    
 ];
-const myTweets = [{username: "myUser1", tweet: "o filme grande"}];
+const myTweets = [];
 
 // sign up
 server.post("/sign-up", (req, res) => {
