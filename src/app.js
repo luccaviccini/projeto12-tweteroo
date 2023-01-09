@@ -32,15 +32,27 @@ server.get("/tweets", (req, res) => {
         const user = myUsers.find((user) => user.username === tweet.username);
         return { ...tweet, avatar: user.avatar };
     });
-   
 
+    // show only last 10 tweets    
+    tweets.splice(0, tweets.length - 10);
+    tweets.reverse();
+    
 
     res.status(200).send(tweets);
+    console.log(tweets)
 });
 
 // post tweet
 server.post("/tweets", (req, res) => {
+    
+
     const { username, tweet } = req.body;
+    // check if user exists
+    const user = myUsers.find((user) => user.username === username);
+    if (!user) {
+        res.status(401).send("UNAUTHORIZED");
+        return;
+    }
     myTweets.push({ username, tweet });
     res.status(201).send("OK");
 });
